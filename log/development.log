@@ -5404,3 +5404,432 @@ app/views/publicacions/_publicacion.html.erb:19: syntax error, unexpected end-of
 app/views/publicacions/_publicacion.html.erb:19: syntax error, unexpected end-of-input, expecting `end'
 app/views/publicacions/index.html.erb:7
 app/views/publicacions/index.html.erb:6
+Started GET "/" for 127.0.0.1 at 2022-10-14 10:08:42 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (4.8ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (5.4ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (3.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 260.3ms | Allocations: 18215)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 331.0ms | Allocations: 23603)
+  Rendered layout layouts/application.html.erb (Duration: 857.9ms | Allocations: 62724)
+Completed 200 OK in 1050ms (Views: 888.9ms | ActiveRecord: 42.3ms | Allocations: 71521)
+
+
+Started GET "/publicacions/new" for 127.0.0.1 at 2022-10-14 10:08:47 -0300
+Processing by PublicacionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/new.html.erb within layouts/application
+  [1m[36mEtiquetum Load (0.5ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta"[0m
+  ↳ app/views/publicacions/_form.html.erb:21
+  Rendered publicacions/_form.html.erb (Duration: 154.9ms | Allocations: 9439)
+  Rendered publicacions/new.html.erb within layouts/application (Duration: 166.3ms | Allocations: 9787)
+  Rendered layout layouts/application.html.erb (Duration: 169.4ms | Allocations: 9878)
+Completed 500 Internal Server Error in 191ms (ActiveRecord: 0.5ms | Allocations: 10382)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass
+
+    '.freeze;@output_buffer.append=( form.hidden_field :usuario_id, value:current_usuario.id );@output_buffer.safe_append='
+                                                                                         ^^^):
+    21:     <%= form.collection_check_boxes :etiquetum_ids, @etiqueta, :id, :nombre %>
+    22:   </div>
+    23:   <div>
+    24:     <%= form.hidden_field :usuario_id, value:current_usuario.id %>
+    25:   </div>
+    26: 
+    27:   <div>
+  
+app/views/publicacions/_form.html.erb:24
+app/views/publicacions/_form.html.erb:1
+app/views/publicacions/new.html.erb:3
+Started GET "/" for 127.0.0.1 at 2022-10-14 10:08:57 -0300
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.7ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (1.5ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 21.5ms | Allocations: 1975)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 31.5ms | Allocations: 3115)
+  Rendered layout layouts/application.html.erb (Duration: 60.7ms | Allocations: 5767)
+Completed 200 OK in 74ms (Views: 60.0ms | ActiveRecord: 3.2ms | Allocations: 6126)
+
+
+Started DELETE "/usuarios/sign_out" for 127.0.0.1 at 2022-10-14 10:08:59 -0300
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://127.0.0.1:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 760)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-14 10:09:00 -0300
+Processing by PublicacionsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.7ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (0.7ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 14.7ms | Allocations: 1974)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 23.5ms | Allocations: 3092)
+  Rendered layout layouts/application.html.erb (Duration: 50.2ms | Allocations: 5723)
+Completed 200 OK in 71ms (Views: 61.6ms | ActiveRecord: 2.2ms | Allocations: 6126)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2022-10-14 10:09:07 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_in"):
+  
+Started GET "/usuario/sign_in" for 127.0.0.1 at 2022-10-14 10:09:12 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/usuario/sign_in"):
+  
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2022-10-14 10:09:15 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.6ms | Allocations: 752)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 39.1ms | Allocations: 3454)
+  Rendered layout layouts/application.html.erb (Duration: 77.2ms | Allocations: 6198)
+Completed 200 OK in 151ms (Views: 113.5ms | ActiveRecord: 8.3ms | Allocations: 11307)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2022-10-14 10:09:18 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"email"=>"lala@lala.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (5.7ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."email" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["email", "lala@lala.cl"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 593ms (ActiveRecord: 5.7ms | Allocations: 4468)
+
+
+Started GET "/" for 127.0.0.1 at 2022-10-14 10:09:19 -0300
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.7ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (1.2ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 16.7ms | Allocations: 1968)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 26.5ms | Allocations: 3138)
+  Rendered layout layouts/application.html.erb (Duration: 49.0ms | Allocations: 5775)
+Completed 200 OK in 58ms (Views: 48.0ms | ActiveRecord: 2.9ms | Allocations: 6103)
+
+
+Started GET "/publicacions/new" for 127.0.0.1 at 2022-10-14 10:09:21 -0300
+Processing by PublicacionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/new.html.erb within layouts/application
+  [1m[36mEtiquetum Load (0.6ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta"[0m
+  ↳ app/views/publicacions/_form.html.erb:21
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_form.html.erb:24
+  Rendered publicacions/_form.html.erb (Duration: 25.1ms | Allocations: 3559)
+  Rendered publicacions/new.html.erb within layouts/application (Duration: 26.6ms | Allocations: 3691)
+  Rendered layout layouts/application.html.erb (Duration: 49.8ms | Allocations: 6339)
+Completed 200 OK in 62ms (Views: 50.9ms | ActiveRecord: 1.2ms | Allocations: 6697)
+
+
+Started GET "/publicacions" for 127.0.0.1 at 2022-10-14 10:09:33 -0300
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.6ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (1.0ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 13.0ms | Allocations: 1973)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 24.8ms | Allocations: 3066)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 5583)
+Completed 200 OK in 62ms (Views: 50.7ms | ActiveRecord: 2.2ms | Allocations: 5931)
+
+
+Started GET "/publicacions" for 127.0.0.1 at 2022-10-14 10:09:34 -0300
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.8ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (1.2ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (1.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 19.4ms | Allocations: 1868)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 29.9ms | Allocations: 2847)
+  Rendered layout layouts/application.html.erb (Duration: 53.0ms | Allocations: 5363)
+Completed 200 OK in 67ms (Views: 54.4ms | ActiveRecord: 3.4ms | Allocations: 5665)
+
+
+Started GET "/publicacions/new" for 127.0.0.1 at 2022-10-14 10:09:36 -0300
+Processing by PublicacionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/new.html.erb within layouts/application
+  [1m[36mEtiquetum Load (1.3ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta"[0m
+  ↳ app/views/publicacions/_form.html.erb:21
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_form.html.erb:24
+  Rendered publicacions/_form.html.erb (Duration: 18.2ms | Allocations: 3267)
+  Rendered publicacions/new.html.erb within layouts/application (Duration: 19.5ms | Allocations: 3380)
+  Rendered layout layouts/application.html.erb (Duration: 42.9ms | Allocations: 5906)
+Completed 200 OK in 53ms (Views: 43.2ms | ActiveRecord: 1.9ms | Allocations: 6230)
+
+
+Started GET "/publicacions/new" for 127.0.0.1 at 2022-10-14 10:09:54 -0300
+Processing by PublicacionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/new.html.erb within layouts/application
+  [1m[36mEtiquetum Load (0.5ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta"[0m
+  ↳ app/views/publicacions/_form.html.erb:21
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_form.html.erb:24
+  Rendered publicacions/_form.html.erb (Duration: 305.0ms | Allocations: 16255)
+  Rendered publicacions/new.html.erb within layouts/application (Duration: 314.7ms | Allocations: 16637)
+  Rendered layout layouts/application.html.erb (Duration: 362.6ms | Allocations: 19674)
+Completed 200 OK in 397ms (Views: 382.7ms | ActiveRecord: 1.2ms | Allocations: 20588)
+
+
+Started POST "/publicacions" for 127.0.0.1 at 2022-10-14 10:10:14 -0300
+Processing by PublicacionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "publicacion"=>{"titulo"=>"laweadelawea", "etiquetum_ids"=>["", "2"], "usuario_id"=>"1", "foto"=>#<ActionDispatch::Http::UploadedFile:0x00000261c5671910 @tempfile=#<Tempfile:C:/Users/jcast/AppData/Local/Temp/RackMultipart20221014-964-6be1cq.jpg>, @original_filename="lasagna.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"publicacion[foto]\"; filename=\"lasagna.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Publicacion"}
+  [1m[36mEtiquetum Load (1.3ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" WHERE "etiqueta"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/publicacions_controller.rb:26:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mPublicacion Create (2.6ms)[0m  [1m[32mINSERT INTO "publicacions" ("titulo", "created_at", "updated_at", "usuario_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["titulo", "laweadelawea"], ["created_at", "2022-10-14 13:10:15.685908"], ["updated_at", "2022-10-14 13:10:15.685908"], ["usuario_id", 1]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mPublicacion::HABTM_Etiqueta Create (0.8ms)[0m  [1m[32mINSERT INTO "etiqueta_publicacions" ("etiquetum_id", "publicacion_id") VALUES ($1, $2)[0m  [["etiquetum_id", 2], ["publicacion_id", 4]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mActiveStorage::Blob Load (5.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mActiveStorage::Blob Create (2.4ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "1jymxhywym6om53etkn6gi5mu9b9"], ["filename", "lasagna.jpg"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 1792136], ["checksum", "J7kalGLzKlcamcyAkl8EZg=="], ["created_at", "2022-10-14 13:10:15.911423"]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mActiveStorage::Attachment Create (3.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "foto"], ["record_type", "Publicacion"], ["record_id", 4], ["blob_id", 1], ["created_at", "2022-10-14 13:10:15.930267"]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mPublicacion Update (1.5ms)[0m  [1m[33mUPDATE "publicacions" SET "updated_at" = $1 WHERE "publicacions"."id" = $2[0m  [["updated_at", "2022-10-14 13:10:15.958740"], ["id", 4]]
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publicacions_controller.rb:29:in `block in create'
+[36m  Disk Storage (42.1ms) [0m[32mUploaded file to key: 1jymxhywym6om53etkn6gi5mu9b9 (checksum: J7kalGLzKlcamcyAkl8EZg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ef905514-194f-4828-893c-53242bcf5023) to Async(default) with arguments: #<GlobalID:0x00000261c5fba008 @uri=#<URI::GID gid://trabajo1-individual/ActiveStorage::Blob/1>>
+Redirected to http://127.0.0.1:3000/publicacions/4
+Completed 302 Found in 1102ms (ActiveRecord: 34.9ms | Allocations: 33498)
+
+
+Started GET "/publicacions/4" for 127.0.0.1 at 2022-10-14 10:10:16 -0300
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023]   [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023] Performing ActiveStorage::AnalyzeJob (Job ID: ef905514-194f-4828-893c-53242bcf5023) from Async(default) enqueued at 2022-10-14T13:10:16Z with arguments: #<GlobalID:0x00000261c61274e0 @uri=#<URI::GID gid://trabajo1-individual/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023] [36m  Disk Storage (7.9ms) [0m[34mDownloaded file from key: 1jymxhywym6om53etkn6gi5mu9b9[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023]   [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023]   [1m[36mActiveStorage::Blob Update (1.5ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023]   [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ef905514-194f-4828-893c-53242bcf5023] Performed ActiveStorage::AnalyzeJob (Job ID: ef905514-194f-4828-893c-53242bcf5023) from Async(default) in 222.59ms
+Processing by PublicacionsController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mPublicacion Load (1.0ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions" WHERE "publicacions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:65:in `set_publicacion'
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/show.html.erb within layouts/application
+  [1m[36mEtiquetum Load (1.3ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 4]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:14
+  Rendered publicacions/_publicacion.html.erb (Duration: 37.0ms | Allocations: 4353)
+  Rendered publicacions/show.html.erb within layouts/application (Duration: 55.6ms | Allocations: 5405)
+  Rendered layout layouts/application.html.erb (Duration: 86.1ms | Allocations: 8029)
+Completed 200 OK in 121ms (Views: 86.9ms | ActiveRecord: 3.7ms | Allocations: 9661)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--93e9f471f499b36e064644ba71021dfac8f33d1a/lasagna.jpg" for 127.0.0.1 at 2022-10-14 10:10:17 -0300
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--93e9f471f499b36e064644ba71021dfac8f33d1a", "filename"=>"lasagna"}
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (11.8ms) [0m[34mGenerated URL for file at key: 1jymxhywym6om53etkn6gi5mu9b9 (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNV3A1Ylhob2VYZDViVFp2YlRVelpYUnJialpuYVRWdGRUbGlPUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14aGMyRm5ibUV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHNZWE5oWjI1aExtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMi0xMC0xNFQxMzoxNToxNy42MTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--49323e2fd14cbc550b055e156b898513ecd7b425/lasagna.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNV3A1Ylhob2VYZDViVFp2YlRVelpYUnJialpuYVRWdGRUbGlPUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14aGMyRm5ibUV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHNZWE5oWjI1aExtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMi0xMC0xNFQxMzoxNToxNy42MTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--49323e2fd14cbc550b055e156b898513ecd7b425/lasagna.jpg
+Completed 302 Found in 96ms (ActiveRecord: 0.9ms | Allocations: 2872)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhNV3A1Ylhob2VYZDViVFp2YlRVelpYUnJialpuYVRWdGRUbGlPUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUVdsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW14aGMyRm5ibUV1YW5Cbklqc2dabWxzWlc1aGJXVXFQVlZVUmkwNEp5ZHNZWE5oWjI1aExtcHdad1k3QmxRNkVXTnZiblJsYm5SZmRIbHdaVWtpRDJsdFlXZGxMMnB3WldjR093WlVPaEZ6WlhKMmFXTmxYMjVoYldVNkNteHZZMkZzIiwiZXhwIjoiMjAyMi0xMC0xNFQxMzoxNToxNy42MTVaIiwicHVyIjoiYmxvYl9rZXkifX0=--49323e2fd14cbc550b055e156b898513ecd7b425/lasagna.jpg" for 127.0.0.1 at 2022-10-14 10:10:17 -0300
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"lasagna"}
+Completed 200 OK in 28ms (ActiveRecord: 0.0ms | Allocations: 334)
+
+
+Started GET "/publicacions" for 127.0.0.1 at 2022-10-14 10:10:25 -0300
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.5ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (0.5ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 13.1ms | Allocations: 1974)
+  [1m[36mEtiquetum Load (0.7ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 4]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:14
+  Rendered publicacions/_publicacion.html.erb (Duration: 21.8ms | Allocations: 2929)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 72.2ms | Allocations: 6421)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 9068)
+Completed 200 OK in 114ms (Views: 97.0ms | ActiveRecord: 3.7ms | Allocations: 9521)
+
+
+Started GET "/publicacions/3" for 127.0.0.1 at 2022-10-14 10:10:59 -0300
+Processing by PublicacionsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPublicacion Load (0.5ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions" WHERE "publicacions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:65:in `set_publicacion'
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/show.html.erb within layouts/application
+  [1m[36mEtiquetum Load (0.6ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  Rendered publicacions/_publicacion.html.erb (Duration: 13.7ms | Allocations: 1861)
+  Rendered publicacions/show.html.erb within layouts/application (Duration: 17.5ms | Allocations: 2455)
+  Rendered layout layouts/application.html.erb (Duration: 44.1ms | Allocations: 4978)
+Completed 200 OK in 60ms (Views: 45.6ms | ActiveRecord: 1.5ms | Allocations: 5823)
+
+
+Started GET "/publicacions/3/edit" for 127.0.0.1 at 2022-10-14 10:11:01 -0300
+Processing by PublicacionsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPublicacion Load (0.6ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions" WHERE "publicacions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:65:in `set_publicacion'
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/edit.html.erb within layouts/application
+  [1m[36mEtiquetum Load (0.8ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta"[0m
+  ↳ app/views/publicacions/_form.html.erb:21
+  [1m[36mEtiquetum Pluck (0.6ms)[0m  [1m[34mSELECT "etiqueta"."id" FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_form.html.erb:21
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT "usuarios".* FROM "usuarios" WHERE "usuarios"."id" = $1 ORDER BY "usuarios"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_form.html.erb:24
+  Rendered publicacions/_form.html.erb (Duration: 26.5ms | Allocations: 4314)
+  Rendered publicacions/edit.html.erb within layouts/application (Duration: 30.5ms | Allocations: 4633)
+  Rendered layout layouts/application.html.erb (Duration: 56.7ms | Allocations: 7151)
+Completed 200 OK in 77ms (Views: 57.4ms | ActiveRecord: 2.5ms | Allocations: 8054)
+
+
+Started PATCH "/publicacions/3" for 127.0.0.1 at 2022-10-14 10:11:08 -0300
+Processing by PublicacionsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "publicacion"=>{"titulo"=>"prueba", "etiquetum_ids"=>["", "2", "3"], "usuario_id"=>"1", "foto"=>#<ActionDispatch::Http::UploadedFile:0x00000261c59f6dd8 @tempfile=#<Tempfile:C:/Users/jcast/AppData/Local/Temp/RackMultipart20221014-964-gmihr0.jfif>, @original_filename="desayuno.jfif", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"publicacion[foto]\"; filename=\"desayuno.jfif\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Publicacion", "id"=>"3"}
+  [1m[36mPublicacion Load (0.6ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions" WHERE "publicacions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:65:in `set_publicacion'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mEtiquetum Load (0.9ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" WHERE "etiqueta"."id" IN ($1, $2)[0m  [["id", 2], ["id", 3]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mEtiquetum Load (0.6ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mPublicacion::HABTM_Etiqueta Create (0.6ms)[0m  [1m[32mINSERT INTO "etiqueta_publicacions" ("etiquetum_id", "publicacion_id") VALUES ($1, $2)[0m  [["etiquetum_id", 3], ["publicacion_id", 3]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mActiveStorage::Blob Create (0.9ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "74boqj7qms4pqyla50lm340ijnae"], ["filename", "desayuno.jfif"], ["content_type", "image/jpeg"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 105778], ["checksum", "RW7g0ZxpCNNb8i0TGlU/RQ=="], ["created_at", "2022-10-14 13:11:08.881891"]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mActiveStorage::Attachment Create (1.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "foto"], ["record_type", "Publicacion"], ["record_id", 3], ["blob_id", 2], ["created_at", "2022-10-14 13:11:08.891782"]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mPublicacion Update (0.7ms)[0m  [1m[33mUPDATE "publicacions" SET "updated_at" = $1 WHERE "publicacions"."id" = $2[0m  [["updated_at", "2022-10-14 13:11:08.900335"], ["id", 3]]
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/publicacions_controller.rb:42:in `block in update'
+[36m  Disk Storage (18.5ms) [0m[32mUploaded file to key: 74boqj7qms4pqyla50lm340ijnae (checksum: RW7g0ZxpCNNb8i0TGlU/RQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c57efc0c-6737-4957-b605-f2444159510c) to Async(default) with arguments: #<GlobalID:0x00000261c6024638 @uri=#<URI::GID gid://trabajo1-individual/ActiveStorage::Blob/2>>
+Redirected to http://127.0.0.1:3000/publicacions/3
+Completed 302 Found in 140ms (ActiveRecord: 9.1ms | Allocations: 11788)
+
+
+Started GET "/publicacions/3" for 127.0.0.1 at 2022-10-14 10:11:09 -0300
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c]   [1m[36mActiveStorage::Blob Load (3.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c] Performing ActiveStorage::AnalyzeJob (Job ID: c57efc0c-6737-4957-b605-f2444159510c) from Async(default) enqueued at 2022-10-14T13:11:08Z with arguments: #<GlobalID:0x00000261c60669e8 @uri=#<URI::GID gid://trabajo1-individual/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c] [36m  Disk Storage (9.4ms) [0m[34mDownloaded file from key: 74boqj7qms4pqyla50lm340ijnae[0m
+Processing by PublicacionsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mPublicacion Load (2.9ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions" WHERE "publicacions"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/publicacions_controller.rb:65:in `set_publicacion'
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/show.html.erb within layouts/application
+  [1m[36mEtiquetum Load (4.2ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (5.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  [1m[36mActiveStorage::Blob Load (4.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:14
+  Rendered publicacions/_publicacion.html.erb (Duration: 39.1ms | Allocations: 3143)
+  Rendered publicacions/show.html.erb within layouts/application (Duration: 42.7ms | Allocations: 3758)
+  Rendered layout layouts/application.html.erb (Duration: 78.2ms | Allocations: 6865)
+Completed 200 OK in 242ms (Views: 69.6ms | ActiveRecord: 37.0ms | Allocations: 14221)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c]   [1m[36mActiveStorage::Blob Update (0.8ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 2]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c]   [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c57efc0c-6737-4957-b605-f2444159510c] Performed ActiveStorage::AnalyzeJob (Job ID: c57efc0c-6737-4957-b605-f2444159510c) from Async(default) in 528.02ms
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b27b3b685f66dd48f0b9be8656a512b26aa64a80/desayuno.jfif" for 127.0.0.1 at 2022-10-14 10:11:09 -0300
+Processing by ActiveStorage::Blobs::RedirectController#show as */*
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b27b3b685f66dd48f0b9be8656a512b26aa64a80", "filename"=>"desayuno"}
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (1.5ms) [0m[34mGenerated URL for file at key: 74boqj7qms4pqyla50lm340ijnae (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhOelJpYjNGcU4zRnRjelJ3Y1hsc1lUVXdiRzB6TkRCcGFtNWhaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyRjVkVzV2TG1wbWFXWWlPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJsYzJGNWRXNXZMbXBtYVdZR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIyLTEwLTE0VDEzOjE2OjEwLjAxOFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--85bc18e27ea48586c5761bd030d023895993be4a/desayuno.jfif)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhOelJpYjNGcU4zRnRjelJ3Y1hsc1lUVXdiRzB6TkRCcGFtNWhaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyRjVkVzV2TG1wbWFXWWlPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJsYzJGNWRXNXZMbXBtYVdZR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIyLTEwLTE0VDEzOjE2OjEwLjAxOFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--85bc18e27ea48586c5761bd030d023895993be4a/desayuno.jfif
+Completed 302 Found in 22ms (ActiveRecord: 0.6ms | Allocations: 1423)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhOelJpYjNGcU4zRnRjelJ3Y1hsc1lUVXdiRzB6TkRCcGFtNWhaUVk2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpUldsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SW1SbGMyRjVkVzV2TG1wbWFXWWlPeUJtYVd4bGJtRnRaU285VlZSR0xUZ25KMlJsYzJGNWRXNXZMbXBtYVdZR093WlVPaEZqYjI1MFpXNTBYM1I1Y0dWSklnOXBiV0ZuWlM5cWNHVm5CanNHVkRvUmMyVnlkbWxqWlY5dVlXMWxPZ3BzYjJOaGJBPT0iLCJleHAiOiIyMDIyLTEwLTE0VDEzOjE2OjEwLjAxOFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--85bc18e27ea48586c5761bd030d023895993be4a/desayuno.jfif" for 127.0.0.1 at 2022-10-14 10:11:10 -0300
+Processing by ActiveStorage::DiskController#show as */*
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"desayuno"}
+Completed 200 OK in 10ms (ActiveRecord: 0.0ms | Allocations: 173)
+
+
+Started GET "/publicacions" for 127.0.0.1 at 2022-10-14 10:11:14 -0300
+Processing by PublicacionsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering publicacions/index.html.erb within layouts/application
+  [1m[36mPublicacion Load (0.5ms)[0m  [1m[34mSELECT "publicacions".* FROM "publicacions"[0m
+  ↳ app/views/publicacions/index.html.erb:6
+  [1m[36mEtiquetum Load (0.5ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 4]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 4], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:14
+  Rendered publicacions/_publicacion.html.erb (Duration: 105.6ms | Allocations: 2885)
+  [1m[36mEtiquetum Load (0.5ms)[0m  [1m[34mSELECT "etiqueta".* FROM "etiqueta" INNER JOIN "etiqueta_publicacions" ON "etiqueta"."id" = "etiqueta_publicacions"."etiquetum_id" WHERE "etiqueta_publicacions"."publicacion_id" = $1[0m  [["publicacion_id", 3]]
+  ↳ app/views/publicacions/_publicacion.html.erb:8
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 3], ["record_type", "Publicacion"], ["name", "foto"], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:13
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/publicacions/_publicacion.html.erb:14
+  Rendered publicacions/_publicacion.html.erb (Duration: 18.4ms | Allocations: 2916)
+  Rendered publicacions/index.html.erb within layouts/application (Duration: 150.0ms | Allocations: 6937)
+  Rendered layout layouts/application.html.erb (Duration: 172.3ms | Allocations: 9468)
+Completed 200 OK in 183ms (Views: 171.3ms | ActiveRecord: 3.3ms | Allocations: 9773)
+
+
